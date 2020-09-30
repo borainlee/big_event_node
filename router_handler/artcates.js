@@ -83,5 +83,12 @@ exports.updateArtCateById = (req, res) => {
             return res.cc('分类名称被占用，请更换后重试！')
         if (results.length === 1 && results[0].alias === req.body.alias)
             return res.cc('分类别名被占用，请更换后重试！')
+        // 更新文章分类
+        const sql = `update ev_article_cate set ? where Id = ?`
+        db.query(sql, [req.body, req.body.Id], (err, results) => {
+            if (err) return res.cc(err)
+            if (results.affectedRows !== 1) return res.cc('更新文章分类失败！')
+            res.cc('更新文章分类成功！', 0)
+        })
     })
 }
