@@ -30,11 +30,11 @@ app.use(expressJWT({ secret: config.jwtSecretKey }).unless({ path: [/^\/api\//] 
 // 导入并使用路由模块
 app.use('/api', require('./router/user'))
 // 导入使用用户信息的路由模块
-app.use('/my',require('./router/userinfo'))
+app.use('/my', require('./router/userinfo'))
 // 导入并使用文章分类的路由模块
-app.use('/my/article',require('./router/artcate'))
-// 新增文章分类的路由
-
+app.use('/my/article', require('./router/artcate'))
+app.use('/my/article', require('./router/article'))
+app.use('/uploads', express.static('./uploads'))
 
 app.use((err, req, res, next) => {
     // 数据验证失败

@@ -20,5 +20,5 @@ router.get('/deletecate/:id', expressJoi(delete_cate_schema), article_handler.de
 // 根据id获取文章分类
 router.get('/cates/:id', expressJoi(get_cate_schema), article_handler.getArtCateById)
 // 根据id更新文章分类
-router.post('/cates/:id', expressJoi(update_cate_schema), article_handler.updateArtCateById)
+router.post('/updatecate', expressJoi(update_cate_schema), article_handler.updateArtCateById)
 module.exports = router

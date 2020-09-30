@@ -19,7 +19,7 @@ exports.get_cate_schema = {
         id,
     },
 }
-exports.get_cate_schema = {
+exports.update_cate_schema = {
     body: {
         Id: id,
         alias,

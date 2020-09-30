@@ -68,7 +68,7 @@ exports.getArtCateById = (req, res) => {
 exports.updateArtCateById = (req, res) => {
     // 定义分类名称和分类别名是否被占用
     const sql = `select * from ev_article_cate where Id<>? and (name=? or alias=?)`
-    db.query(sqlStr, [req.body.Id, req.body.name, req.body.alias], (err, results) => {
+    db.query(sql, [req.body.Id, req.body.name, req.body.alias], (err, results) => {
         if (err) return res.cc(err)
         // 分类名称 和 分类别名 都被占用
         if (results.length === 2) return res.cc('分类名称与别名被占用，请更换后重试！')
